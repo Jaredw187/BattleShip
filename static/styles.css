@@ -1,0 +1,840 @@
+/*******************************************************
+             Importing Other Style Sheets
+*******************************************************/
+@import url('/static/winners.css');
+@import url('/static/justin.css');
+/*******************************************************
+    Base HTML Styling (DO NOT Change w/o asking)
+*******************************************************/
+/*
+    General practice here is to use #id's for general
+    sizing while using .class's for styling, color,
+    and text layout.
+*/
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+    background: #f1f1f1 url('/static/background/first_aid_kit.png') left top repeat;
+    font-family: 'Oswald', sans-serif;
+}
+
+h1{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
+}
+h2{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5em;
+}
+h3{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.17em;
+}
+h4{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.12em;
+}
+h5{
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.83em;
+}
+h6{
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.75em;
+}
+/* Input placeholder text color */
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #598497;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #598497;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #598497;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #598497;
+}
+
+#wrapper.pure-g {
+	min-height:100%;
+	position:relative;
+}
+
+#content {
+	padding-bottom: 5em; /* Height of the footer element */
+}
+
+/***********************************************************************************
+                   MOBILE Styling (NOTE: Mobile ≤ 768px / 48em)
+************************************************************************************/
+
+/*******************************************************
+   Error Message Styling
+*******************************************************/
+#error_message{
+    margin-top: -0.5em;
+    color: #243f50;
+}
+
+/*******************************************************
+    Header Styling
+*******************************************************/
+#header{
+	padding:0;
+    height: 7em;
+}
+.header{
+    background: #ededed; /* Change to transparent after logo creation */
+    border-bottom: 0.1em solid #d8d8d8;
+    -webkit-box-shadow: 0 1px 1px -1px  rgba(140, 140, 140, .15);
+    -moz-box-shadow: 0 1px 1px -1px  rgba(140, 140, 140, .15);
+    box-shadow: 0 1px 1px -1px  rgba(140, 140, 140, .15);
+}
+.logo_container{
+    margin-top: 0.6em;
+    padding-bottom: 0.1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 320px;
+    height: auto;
+}
+/*******************************************************
+    Content Styling
+*******************************************************/
+#content_mid{
+    padding-bottom: 4.75em; /* Based on the content card from homepage */
+}
+#content_top{
+    height: 3em; /* Used to pad content in the middle */
+}
+#content_bottom{
+    height: 3em; /* Used to pad content in the middle */
+}
+/*******************************************************
+    Homepage Styling
+*******************************************************/
+
+/***********************
+    Card Styling
+************************/
+#card_homepage{
+    width: 100%;
+    height: 22em;
+    margin-top: -2em;
+}
+.card_homepage{
+    background: #598497;
+}
+#card_hp_content{
+    text-align: center;
+}
+#card_hp_content h1{
+    font-family: 'Pacifico', 'Oswald', sans-serif;
+    font-weight: 400;
+    color: #243f50;
+    font-size: 24pt;
+    padding-top: 1em;
+    margin-bottom: -0.5em;
+}
+#card_hp_content h4{
+    text-transform: uppercase;
+    font-size: 10pt;
+    color: #a0c1d0;
+}
+/***********************
+    Form Styling
+************************/
+#card_hp_content fieldset{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    padding: 0;
+    margin-top: -1.5em;
+}
+#card_hp_content input{
+    width: 100%;
+    height: 3em;
+    margin-left: auto;
+    margin-right: auto;
+    background: #243f50;
+    font-size: 14pt;
+    color: #a0c1d0;
+    text-align: center;
+}
+#card_hp_content label{
+    visibility: hidden;
+}
+#card_hp_content input,
+#card_hp_content input:focus,
+#card_hp_content input:hover,
+#card_hp_content input:active{
+   border: none;
+}
+button.home_submit.pure-button{
+    width: 100%;
+    padding: 0.75em;
+    margin-top: 0.5em;
+    background: #a0c1d0;
+    color: #598497;
+    font-family: 'Karla', sans-serif;
+    font-size: 14pt;
+    text-transform: uppercase;
+}
+button.home_submit:hover.pure-button{
+    background: #243f50;
+    color: #e2365c;
+}
+/*******************************************************
+    Game Rooms Styling
+*******************************************************/
+#card_roompage{
+    width: 100%;
+    margin-top: -2em;
+    padding-bottom: 2em;
+}
+.card_roompage{
+    background: #598497;
+}
+
+#card_rm_content{
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+#card_rm_content h1{
+    font-family: 'Pacifico', 'Oswald', sans-serif;
+    font-weight: 400;
+    color: #243f50;
+    font-size: 24pt;
+    padding-top: 1em;
+    margin-bottom: -0.5em;
+}
+#card_rm_content h4{
+    text-transform: uppercase;
+    font-size: 10pt;
+    color: #a0c1d0;
+}
+#roomlistInfo a:link{
+    color: #243f50;
+    text-decoration: none;
+}
+#roomlistInfo a:hover{
+    color: #e2365c;
+    text-decoration: none;
+}
+#roomlistInfo a:active, #roomlistInfo a:visited{
+    color: #a0c1d0;
+    text-decoration: none;
+}
+#roomlistInfo ul{
+    padding-left: 0;
+}
+button.pure-button.startnew_submit{
+    width: 90%;
+    padding: 0.75em;
+    background: #a0c1d0;
+    color: #598497;
+    font-family: 'Karla', sans-serif;
+    font-size: 14pt;
+    text-transform: uppercase;
+}
+button.startnew_submit:hover.pure-button{
+    background: #243f50;
+    color: #e2365c;
+}
+/*******************************************************
+    Game Page Styling
+*******************************************************/
+/********************************************
+    Battle Location Title Styling
+*********************************************/
+#card_title{
+    width:100%;
+    height: 4em;
+    border-top: solid 0.3em #243f50;
+    border-bottom: solid 0.3em #243f50;
+}
+.card_title{
+    background: #a0c1d0;
+}
+
+#title{
+    padding-top: 0.2em;
+    color: #243f50;
+    font-size: 14pt;
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    text-transform: capitalize;
+
+}
+/********************************************
+    "The Chat App" Styling
+*********************************************/
+
+#the_chat_app{
+    width: 100%;
+    border: none;
+    padding: 0;
+}
+#card_ca_content{
+    text-align: center;
+    background: none;
+}
+
+#waiting_dialogue{
+    color: #e2365c;
+    font-family: 'Pacifico', 'Oswald', sans-serif;
+    font-weight: 400;
+}
+#card_waiting{
+    background: #243f50;
+    width: 100%;
+    margin-bottom: -1.5em;
+    margin-top: 1.5em;
+}
+#card_wt_content{
+    padding-top: 1em;
+    padding-bottom: 1.5em;
+    text-align: center;
+}
+#join_chat_dialogue{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    color: #e2365c;
+    font-family: 'Pacifico', 'Oswald', sans-serif;
+    font-weight: 400;
+}
+
+#card_chat_app{
+    width: 100%;
+    padding-bottom: 3em;
+}
+.card_chat_app{
+    background: #243f50;
+}
+/* General styling for "The Chat App" card head banners */
+#card_banner{
+    width: 100%;
+}
+.card_banner{
+    background: #a0c1d0;
+    padding-top: 0.1em;
+    padding-bottom: 0.01em;
+}
+#card_banner h3{
+    text-align: center;
+    color: #243f50;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-top: 1.3em;
+}
+/***********************
+ Nickname Card Styling
+************************/
+#card_nickname{
+    width: 90%;
+    height: 10em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.card_nickname{
+    background: #598497;
+}
+/***********************
+ Nickname Form Styling
+************************/
+#nameInput input{
+    width: 100%;
+    height: 3em;
+    background: #243f50;
+    color: #a0c1d0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5em;
+}
+#nameInput input,
+#nameInput input:focus,
+#nameInput input:hover,
+#nameInput input:active{
+   border: none;
+}
+#nameInput label{
+    visibility: hidden;
+}
+#form_buttons{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+button.nickname_submit.pure-button{
+    width: 100%;
+    margin-top: 0.5em;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    background: #a0c1d0;
+    color: #598497;
+    font-family: 'Karla', sans-serif;
+    font-size: 14pt;
+    text-transform: uppercase;
+}
+button.nickname_submit:hover.pure-button{
+    background: #243f50;
+    color: #e2365c;
+}
+/***********************
+ "theList" Card Styling
+************************/
+#card_theList{
+    width: 90%;
+    min-height: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1em;
+}
+.card_theList{
+    background: #598497;
+}
+/***********************
+ "theList" User Styling
+************************/
+
+#theList ul{
+    text-align: center;
+    color: #243f50;
+    background: #a0c1d0;
+    width: 90%;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14pt;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+#theList ol{
+    text-indent: 0;
+    padding-left: 0;
+
+}
+/***********************
+"theMessages" Card Styling
+************************/
+#card_theMessages{
+    width: 90%;
+    min-height: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+}
+.card_theMessages{
+    background: #598497;
+}
+/***********************
+"theMessages" Message Styling
+************************/
+#theMessages ol{
+    text-align: left;
+    color: #a0c1d0;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    text-indent: 0;
+    padding-left: 1em;
+
+}
+#theMessages ul{
+    padding: 0;
+}
+/***********************
+"theMsgInput" Card Styling
+************************/
+#card_theMsgInput{
+    width: 90%;
+    min-height: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -1em;
+}
+.card_theMsgInput{
+    background: #598497;
+}
+/***********************
+"theMsgInput" Form Styling
+************************/
+#input textarea{
+    width: 100%;
+    background: #a0c1d0;
+    color: #243f50;
+    border-radius: 0;
+
+}
+#input textarea,
+#input textarea:focus,
+#input textarea:hover,
+#input textarea:active{
+   border: none;
+}
+#input label{
+    visibility: hidden;
+}
+#card_tMI_content fieldset{
+    border: hidden;
+    padding: 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+button.msg_submit.pure-button{
+    width: 100%;
+    background: #a0c1d0;
+    color: #598497;
+    font-family: 'Karla', sans-serif;
+    font-size: 14pt;
+    text-transform: uppercase;
+}
+button.msg_submit:hover.pure-button{
+    background: #243f50;
+    color: #598497;
+}
+/********************************************
+    "Game Info" Styling
+*********************************************/
+#game_info{
+    float: none;
+    font-size: 12pt;
+    color: #f1f1f1;
+    background: #e2365c;
+    text-align: center;
+    padding: 0.5em 0;
+}
+/********************************************
+    "Ship Status" Styling
+*********************************************/
+#ship_status{
+    width: 100%;
+}
+#ship_s_left{
+    float: left;
+    width: 50%;
+    background: #a0c1d0;
+
+}
+#ship_s_right{
+    float: right;
+    top: 0;
+    width: 50%;
+    background: #a0c1d0;
+}
+#ship_s_left_content, #ship_s_right_content{
+    padding: 1em;
+    text-align: center;
+    color: #243f50;
+}
+.statusdiv{
+    display: inline-block;
+    color: #598497;
+}
+.statusdiv2{
+    display: inline-block;
+    color: #e2365c;
+}
+
+#curr_pid{
+    display: inline-block;
+}
+/********************************************
+    "Player Board's" Styling
+*********************************************/
+/***********************
+     Board Layout
+************************/
+#board_wrapper_p1, #board_wrapper_p2{
+    width: 100%;
+    overflow: auto;
+}
+#board_left{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #598497;
+    padding-bottom: 2em;
+
+}
+#board_right{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #598497;
+    padding-bottom: 2em;
+}
+/***********************
+  General Board Styles
+************************/
+#board {
+    border-collapse: collapse;
+    max-width: 100%;
+    background: #598497;
+    padding: 0;
+    margin-top: 0.5em;
+    border-top: solid 0.4em #a0c1d0;
+}
+#board .cell {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    border: solid 2px #a0c1d0;
+    cursor: pointer;
+    text-align: center;
+    color: #243f50;
+}
+#board_inner_wrapper{
+    width: 100%;
+    padding-bottom: 2em;
+    background: #a0c1d0;
+}
+#boardfeildsetp1 h3, #boardfeildsetp1moves h3, #boardfeildsetp2 h3, #boardfeildsetp2moves h3 {
+    color: #e2365c;
+    font-family: 'Pacifico', 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 24pt;
+    text-align: center;
+    background: #a0c1d0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-bottom: -0.1em;
+    border-bottom: solid 0.3em #e2365c;
+}
+/*******************************************************
+    Footer Styling
+*******************************************************/
+#footer{
+    position: absolute;
+	width:100%;
+	height:5em;
+	bottom:0;
+	left:0;
+}
+#footer_content{
+    margin-top: 1em;
+    text-align: center;
+    font-size: 10pt;
+}
+.footer{
+	background: #243f50;
+	border-top: solid 0.2em #e2365c;
+}
+.footer_content{
+	color: #e2365c;
+	font-size: 10pt;
+	max-width: 65%;
+    margin: 0 auto 0 auto;
+}
+
+/***********************************************************************************
+                   Desktop Styling (NOTE: Desktop ≥ 768px / 48em)
+************************************************************************************/
+@media screen and (min-width: 48em) {
+
+    /*******************************************************
+       Error Message Styling
+    *******************************************************/
+    #error_message{
+        margin-top: 1.5em;
+        color: #243f50;
+    }
+
+    /*******************************************************
+        Homepage Styling
+    *******************************************************/
+    /***********************
+        Card Styling
+    ************************/
+    #card_homepage {
+        width: 30em;
+        height: 20em;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 3em;
+    }
+    .card_homepage {
+        -moz-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+        box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+    }
+
+    #card_hp_content {
+        text-align: center;
+    }
+    #card_hp_content fieldset {
+        width: 65%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /*******************************************************
+        Game Rooms Styling
+    *******************************************************/
+    #card_roompage{
+        width:30em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -2em;
+        padding-bottom: 3em;
+    }
+    .card_roompage{
+        -moz-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+        box-shadow: 0em 0.125em 0.125em rgba(0, 0, 0, 0.3);
+    }
+    button.pure-button.startnew_submit{
+        width: 60%;
+    }
+    /*******************************************************
+        Game Page Styling
+    *******************************************************/
+    /********************************************
+        Battle Location Title Styling
+    *********************************************/
+    /*
+        USE DEFAULT
+    */
+
+    /********************************************
+        "The Chat App" Styling
+    *********************************************/
+    /*
+        USE DEFAULT
+    */
+    /********************************************
+        "Player Board's" Styling
+    *********************************************/
+    /***********************
+         Board Layout
+    ************************/
+    #board_wrapper_p1, #board_wrapper_p2{
+        width: 100%;
+        overflow: auto;
+        background: #598497;
+        padding-bottom: 3em;
+    }
+    #board_left{
+        width: 42%;
+        float: left;
+        padding-left: 4%;
+        padding-right: 4%;
+
+    }
+    #board_right{
+        width: 42%;
+        float: right;
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    /*******************************************************
+        Footer Styling
+    *******************************************************/
+    #footer_content{
+        margin-top: 2.5em;
+        text-align: center;
+        font-size: 10pt;
+    }
+
+}
+/**************************************************************
+    GAMEPLAY IMAGES
+***************************************************************/
+/************************************
+    MARKERS
+*************************************/
+.hit{
+    background: url("/static/gamepieces/markers/hit_boom.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.splash{
+    background: url("/static/gamepieces/markers/miss_splash.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/************************************
+    ALIVE BOATS
+*************************************/
+.carrier{
+    background: url("/static/gamepieces/alive/carrier_alive.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.battleship{
+    background: url("/static/gamepieces/alive/battleship_alive.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.submarine{
+    background: url("/static/gamepieces/alive/submarine_alive.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.destroyer{
+    background: url("/static/gamepieces/alive/destroyer_alive.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.patrol_boat{
+    background: url("/static/gamepieces/alive/patrolboat_Alive.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/************************************
+    SUNKEN BOATS
+*************************************/
+.carrier_s{
+    background: url("/static/gamepieces/hit/carrier_hit.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.battleship_s{
+    background: url("/static/gamepieces/hit/battleship_hit.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.submarine_s{
+    background: url("/static/gamepieces/hit/submarine_hit.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.destroyer_s{
+    background: url("/static/gamepieces/hit/destroyer_hit.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.patrol_boat_s{
+    background: url("/static/gamepieces/hit/patrolboat_hit.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.rotate90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}

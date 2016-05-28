@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{%  block content_top %}
+    <!--
+    Content TOP is not needed here, simply including it for consistency in the event that we use this container
+    on other pages
+    -->
+{% endblock content_top %}
+{% block content_mid %}
+<main class="indexwindow" >
+    <div id="card_homepage" class="card_homepage">
+        <div id="card_hp_content" class="card_hp_content">
+            <div id="indexInfo">
+                <h1>Welcome to Battleship!</h1>
+                <h4>- The worst way to game with friends -</h4>
+                <fieldset>
+                    <form class="new_chat pure-form pure-form-stacked" action="/new-chat" method="POST">
+                        <label>Enter Battle Location:</label>
+                        <input type="text" name="chat_topic" autocomplete="off" placeholder="Enter Battle Location...">
+                        <button type='submit' class="home_submit pure-button">Next</button>
+                    </form>
+                    <button class="home_submit pure-button" id = 'vcr' onclick="window.location='/display_rooms/all'">
+                            View current Rooms</button>
+                    {% if state == 'bad' %}
+                        <div id="error_message" class="error_msg"><p>You have been kicked from the game!</p></div>
+                    {% endif %}
+                    {% if state == 'not_found' %}
+                        <div id="error_message" class="error_msg"><p>The game requested was not found!</p></div>
+                    {% endif %}
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock content_mid %}
+{% block content_bottom %}
+    <!--
+    Content BOTTOM is not needed here, simply including it for consistency in the event that we use this container
+    on other pages
+    -->
+{% endblock content_bottom %}

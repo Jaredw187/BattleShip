@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{%  block content_top %}
+    <!--
+    Content TOP is not needed here, simply including it for consistency in the event that we use this container
+    on other pages
+    -->
+{% endblock content_top %}
+
+{% block content_mid %}
+ <div id="create_card" class="create_card">
+        <div id="create_card_content" class="create_card_content">
+            <div id="create_card_title" class="create_card_title"><h2>Create Account</h2></div>
+                <fieldset>
+                    <form class="create_user pure-form pure-form-stacked" method="POST" action="/create_new_user"
+                            enctype="multipart/form-data">
+                        <div class="form_field_1 pure-control-group">
+                            <label class="new_username pure-input-2-5" for="create-username">Username:</label>
+                            <input class="create_username_input pure-input-2-5" type="text" name="user" id="create-username"
+                                   placeholder="Username">
+                        </div>
+                        <div class="form_field_2 pure-control-group">
+                            <label class="new_password pure-input-2-5" for="create_password">Password:</label>
+                            <input class="create_password_input pure-input-2-5" type="password" name="password"
+                                   id="create_password" placeholder="Password">
+                        </div>
+                        <div class="form_field_3 pure-control-group">
+                            <label class="new_confirm_password pure-input-2-5" for="confirm_password">
+                                Re-enter Password:</label>
+                            <input class="confirm_password_input pure-input-2-5" type="password" name="confirm"
+                                   id="confirm_password" placeholder="Confirm Password">
+                        </div>
+                         <div class="form_field_4 pure-control-group">
+                            <label class="enter_location pure-input-2-5" for="location">
+                                Location:</label>
+                            <input class="enter_location_input pure-input-2-5" type="text" name="location"
+                                   id="set-location" placeholder="Enter your location">
+                        </div>
+                        <div class="form_field_5 pure-control-group">
+                            <label class="enter_bio_input pure-input-2-5" for="bio">
+                                Enter Biography:</label>
+                            <textarea class="bio_input pure-input-2-5" type="text" name="bio"
+                                   id="enter_bio" placeholder="Tell us about yourself!"></textarea>
+                        </div>
+                        <!-- This setup allows us to have a custom upload button, so don't mess with it without
+                        messaging abm67 -->
+                        <label class="user_photo_upload pure-button">
+                            <label for="file"></label>
+                            <input type="file" name="image" accept="image/*">
+                            <span>Upload Profile Photo</span>
+                        </label>
+                        <button class="create_user_button pure-button" type="submit">Create</button>
+                    </form>
+                </fieldset>
+        </div>
+        <div class="existing_account_link"><a href="/login">Login to Account</a></div>
+        <div class="create_user_error">
+            {% if state == 'bad' %}
+                <div id="error_message" class="error_msg"><p>Invalid user name or password.</p></div>
+            {% elif state == 'bad-username' %}
+                <div id="error_message" class="error_msg"><p>Invalid username.</p></div>
+            {% elif state == 'password-mismatch' %}
+                <div id="error_message" class="error_msg"><p>Passwords don't match.</p></div>
+            {% elif state == 'username-used' %}
+                <div id="error_message" class="error_msg"><p>Username already taken.</p></div>
+            {% elif not g.user and state == ' '%}
+                <div id="error_message" class="error_msg"><p>You must be logged in to ask a question.</p></div>
+            {% elif state == "invalid-character" %}
+                <div id="error_message" class="error_msg"><p>Invalid Character used in User Name.
+                                                             Forbidden Characters include - + = _ ' " : ; , . / < > ? ! @
+                                                             # $ % ^ & * ( ) ` ~ or a space  </p></div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content_mid %}
+
+{% block content_bottom %}
+    <!--
+    Content BOTTOM is not needed here, simply including it for consistency in the event that we use this container
+    on other pages
+    -->
+{% endblock content_bottom %}
+
+
+
+

@@ -1,0 +1,55 @@
+/************************************
+    winner page
+************************************/
+
+
+.body1{
+    background: url(/static/winner/winner_pic.jpg);
+    background-repeat: no-repeat;
+    max-height:100%;
+    max-width: 100%;
+    background-size: cover;
+
+}
+
+
+.divone{
+    text-align: center;
+    max-width: 100%;
+    font-size: 500%;
+}
+
+
+.divtwo{
+    color:black;
+    font-size: 30pt;
+    test-align:left;
+    position:fixed;
+}
+
+
+.myButt{
+    background:url(/static/winner/battleButt1.png) no-repeat;
+    cursor:pointer;
+    border:none;
+    width:200px;
+    height:200px;
+}
+
+.myButt:active{
+    background:url(/static/winner/battleButt1.png) no-repeat;
+
+}
+
+
+
+mark.gold{
+    color:#e2365c;
+    background:none;
+    font-weight:bold;
+}
+
+li{
+    list-style-type: none;
+}
+

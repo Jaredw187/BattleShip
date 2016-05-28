@@ -1,0 +1,82 @@
+/************************************************************
+    Hello Justin!
+
+    I created this separate file so that when we commit
+    changes there's no need to merge. The way @import
+    works everything in this file will be writen to the
+    bottom of the "styles.css" file, so in effect this file
+    will overwrite changes made to the "style.css" if the
+    element names match.
+
+*************************************************************/
+
+#card_loser_page {
+    margin-left: -16%;
+    margin-right: -10%;
+    margin-bottom: 5%;
+}
+
+.display_loser_msg {
+    width: 60%;
+    text-align: center;
+    margin-left: 22%;
+    margin-right: 22%;
+    margin-bottom: 3em;
+    margin-top: -4.3em;
+
+    color: darkred;
+    font-family: 'Calibri', sans-serif;
+}
+
+.display_my_picture {
+    width: 60%;
+    margin-left: 22%;
+    margin-right: 22%;
+    margin-top: -2.5em;
+    margin-bottom: -3em;
+}
+#index_linker {
+     width: 60%;
+     margin-bottom: -4em;
+     margin-left: 22%;
+     margin-right: 22%;
+     border: solid #243f50;
+     border-width: .5em;
+}
+
+@media screen and (min-width: 620px) {
+    #card_loser_page {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 5%;
+    }
+
+    #index_linker {
+        margin-bottom: -5em;
+    }
+}
+
+
+@media screen and (min-width: 722px) {
+    #card_loser_page {
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 5%;
+    }
+}
+
+@media screen and (min-width: 881px) {
+    #card_loser_page {
+        margin-left: 14%;
+        margin-right: 14%;
+        margin-bottom: 5%;
+    }
+}
+
+@media screen and (min-width: 1195px) {
+    #card_loser_page {
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-bottom: 5%;
+    }
+}

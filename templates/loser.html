@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content_mid %}
+    <main class="indexwindow">
+        <div id="card_loser_page">
+            <div class="display_loser_msg"><h4>{{ loser }} loses.. Better Luck Next Time.</h4></div>
+                {% if loser == "Player1" %}
+                    <img src="/static/losers/PeaceBoats.jpg" class="display_my_picture">
+                {% endif %}
+                {% if loser == "Player2" %}
+                    <img src="/static/losers/PeaceBoats.jpg" class="display_my_picture">
+                {% endif %}
+                <br>
+                <br>
+
+                <button class="chat_submit pure-button" id="index_linker" onclick="window.location='/'">Play Again</button><br><br><br>
+                <button class="chat_submit pure-button" id="index_linker" onclick="window.location='/rematch/{{ key }}'">Rematch</button>
+        </div>
+
+    </main>
+{% endblock content_mid %}x

@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% block content_mid %}
+
+<body class="body1">
+    <div class="divone">
+        <mark class="gold">Congratulations</mark>, {{ winner }} you Won!
+    </div> <br><br><br><br>
+    <div class="divtwo"> <br><br>
+        <button class="chat_submit pure-button" id="index_linker2" onclick="window.location='/rematch/{{ key }}'">Rematch</button>
+      <ul>
+       <li ><b>Click to Sink </b></li>
+       <li><input class="myButt" onclick="window.location='/'"></li>
+       <li><b>More BattleShips!</b></li>
+     </ul>
+
+    </div>
+</body>
+
+{% endblock content_mid %}

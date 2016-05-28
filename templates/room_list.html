@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% block content_mid %}
+<main class="indexwindow" >
+    <div id="card_roompage" class="card_roompage">
+        <div id="card_rm_content" class="card_rm_content">
+                <h1>Battleship Rooms</h1>
+                <h4>- Click on a room to join! -</h4>
+            <div id="roomlistInfo">
+                 <ul>
+                {% for room, key in chats.items() %}
+                    {% for _key, num in num_players.items() %}
+                        {% if key == _key %}
+                           <h4><ul>Battle of <a href="/{{ key }}">"{{ room }}"</a>  - {{ num }} {% if num > 2 %}players{% elif num == 1 %}player{% endif %}</ul></h4>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+            </div>
+            <button class="startnew_submit pure-button" id = 'vcr' onclick="window.location='/'">Start New Game</button>
+        </div>
+    </div>
+</main>
+{% endblock content_mid %}
+
+

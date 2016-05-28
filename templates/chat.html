@@ -1,0 +1,777 @@
+{% extends 'base.html' %}
+{%  block content_top %}
+    <!--
+    Content TOP is not needed here, simply including it for consistency in the event that we use this container
+    on other pages
+    -->
+{% endblock content_top %}
+{% block content_mid %}
+    <main class="window" data-key="{{ key }}" data-sid="{{ sid }}" data-name="{{name}}" >
+
+        <!--------------------------------------------------------
+
+                         Battle Location Title
+
+        --------------------------------------------------------->
+        <div id="card_title" class="card_title">
+            <div id="card_tt_content">
+                <div id="title">
+                    <p>Battling in "{{ topic }}" as Player <span id="curr_pid">{{ player }}</span></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!--------------------------------------------------------
+
+                            "Waiting" Overlay
+
+        --------------------------------------------------------->
+
+        <div id="waiting_dialogue">
+            <div id="card_waiting" class="card_waiting">
+                <div id="card_wt_content" class="card_wt_content">
+                    <h1 id="waiting_dialogue"> Waiting for Player 2! </h1>
+                </div>
+            </div>
+        </div>
+
+        <!--------------------------------------------------------
+
+             Game Info - Describes what players ought to do.
+
+        --------------------------------------------------------->
+        <div id="game_info"></div>
+
+        <!--------------------------------------------------------
+
+                     Player 1 & Player 2 Boards.
+
+        --------------------------------------------------------->
+        <!--The Boards-->
+        <div id="board_wrapper_p1" class="board_wrapper_p1">
+            <div id="board_left" class="board_left">
+                <div id="boardfeildsetp1">
+                    <div id="board_inner_wrapper">
+                    <table id="board" align="center">
+                        <h3>Boats</h3>
+                        <tr data-row="horiz-numbers" >
+                            <td class="cell" id="blank" ></td>
+                            <td class="cell" id="p1A" data-col="A">A</td>
+                            <td class="cell" id="p1B" data-col="B">B</td>
+                            <td class="cell" id="p1C" data-col="C">C</td>
+                            <td class="cell" id="p1D" data-col="D">D</td>
+                            <td class="cell" id="p1E" data-col="E">E</td>
+                            <td class="cell" id="p1F" data-col="F">F</td>
+                            <td class="cell" id="p1G" data-col="G">G</td>
+                            <td class="cell" id="p1H" data-col="H">H</td>
+                            <td class="cell" id="p1I" data-col="I">I</td>
+                            <td class="cell" id="p1J" data-col="J">J</td>
+                        </tr>
+                        <tr data-row="1" >
+                            <td class="cell" id="p11" data-col="1">1</td>
+                            <td class="cell" id="p111" data-col="1"></td>
+                            <td class="cell" id="p112" data-col="2"></td>
+                            <td class="cell" id="p113" data-col="3"></td>
+                            <td class="cell" id="p114" data-col="4"></td>
+                            <td class="cell" id="p115" data-col="5"></td>
+                            <td class="cell" id="p116" data-col="6"></td>
+                            <td class="cell" id="p117" data-col="7"></td>
+                            <td class="cell" id="p118" data-col="8"></td>
+                            <td class="cell" id="p119" data-col="9"></td>
+                            <td class="cell" id="p1110" data-col="10"></td>
+                        </tr>
+                        <tr data-row="2">
+                            <td class="cell" id="p12" data-col="2">2</td>
+                            <td class="cell" id="p121" data-col="1"></td>
+                            <td class="cell" id="p122" data-col="2"></td>
+                            <td class="cell" id="p123" data-col="3"></td>
+                            <td class="cell" id="p124" data-col="4"></td>
+                            <td class="cell" id="p125" data-col="5"></td>
+                            <td class="cell" id="p126" data-col="6"></td>
+                            <td class="cell" id="p127" data-col="7"></td>
+                            <td class="cell" id="p128" data-col="8"></td>
+                            <td class="cell" id="p129" data-col="9"></td>
+                            <td class="cell" id="p1210" data-col="10"></td>
+                        </tr>
+                        <tr data-row="3">
+                            <td class="cell" id="p13" data-col="3">3</td>
+                            <td class="cell" id="p131" data-col="1"></td>
+                            <td class="cell" id="p132" data-col="2"></td>
+                            <td class="cell" id="p133" data-col="3"></td>
+                            <td class="cell" id="p134" data-col="4"></td>
+                            <td class="cell" id="p135" data-col="5"></td>
+                            <td class="cell" id="p136" data-col="6"></td>
+                            <td class="cell" id="p137" data-col="7"></td>
+                            <td class="cell" id="p138" data-col="8"></td>
+                            <td class="cell" id="p139" data-col="9"></td>
+                            <td class="cell" id="p1310" data-col="10"></td>
+                        </tr>
+                        <tr data-row="4">
+                            <td class="cell" id="p14" data-col="4">4</td>
+                            <td class="cell" id="p141" data-col="1"></td>
+                            <td class="cell" id="p142" data-col="2"></td>
+                            <td class="cell" id="p143" data-col="3"></td>
+                            <td class="cell" id="p144" data-col="4"></td>
+                            <td class="cell" id="p145" data-col="5"></td>
+                            <td class="cell" id="p146" data-col="6"></td>
+                            <td class="cell" id="p147" data-col="7"></td>
+                            <td class="cell" id="p148" data-col="8"></td>
+                            <td class="cell" id="p149" data-col="9"></td>
+                            <td class="cell" id="p1410" data-col="10"></td>
+                        </tr>
+                        <tr data-row="5">
+                            <td class="cell" id="p15" data-col="5">5</td>
+                            <td class="cell" id="p151" data-col="1"></td>
+                            <td class="cell" id="p152" data-col="2"></td>
+                            <td class="cell" id="p153" data-col="3"></td>
+                            <td class="cell" id="p154" data-col="4"></td>
+                            <td class="cell" id="p155" data-col="5"></td>
+                            <td class="cell" id="p156" data-col="6"></td>
+                            <td class="cell" id="p157" data-col="7"></td>
+                            <td class="cell" id="p158" data-col="8"></td>
+                            <td class="cell" id="p159" data-col="9"></td>
+                            <td class="cell" id="p1510" data-col="10"></td>
+                        </tr>
+                        <tr data-row="6">
+                            <td class="cell" id="p16" data-col="6">6</td>
+                            <td class="cell" id="p161" data-col="1"></td>
+                            <td class="cell" id="p162" data-col="2"></td>
+                            <td class="cell" id="p163" data-col="3"></td>
+                            <td class="cell" id="p164" data-col="4"></td>
+                            <td class="cell" id="p165" data-col="5"></td>
+                            <td class="cell" id="p166" data-col="6"></td>
+                            <td class="cell" id="p167" data-col="7"></td>
+                            <td class="cell" id="p168" data-col="8"></td>
+                            <td class="cell" id="p169" data-col="9"></td>
+                            <td class="cell" id="p1610" data-col="10"></td>
+                        </tr>
+                        <tr data-row="7">
+                            <td class="cell" id="p17" data-col="7">7</td>
+                            <td class="cell" id="p171" data-col="1"></td>
+                            <td class="cell" id="p172" data-col="2"></td>
+                            <td class="cell" id="p173" data-col="3"></td>
+                            <td class="cell" id="p174" data-col="4"></td>
+                            <td class="cell" id="p175" data-col="5"></td>
+                            <td class="cell" id="p176" data-col="6"></td>
+                            <td class="cell" id="p177" data-col="7"></td>
+                            <td class="cell" id="p178" data-col="8"></td>
+                            <td class="cell" id="p179" data-col="9"></td>
+                            <td class="cell" id="p1710" data-col="10"></td>
+                        </tr>
+                        <tr data-row="8">
+                            <td class="cell" id="p18" data-col="8">8</td>
+                            <td class="cell" id="p181" data-col="1"></td>
+                            <td class="cell" id="p182" data-col="2"></td>
+                            <td class="cell" id="p183" data-col="3"></td>
+                            <td class="cell" id="p184" data-col="4"></td>
+                            <td class="cell" id="p185" data-col="5"></td>
+                            <td class="cell" id="p186" data-col="6"></td>
+                            <td class="cell" id="p187" data-col="7"></td>
+                            <td class="cell" id="p188" data-col="8"></td>
+                            <td class="cell" id="p189" data-col="9"></td>
+                            <td class="cell" id="p1810" data-col="10"></td>
+                        </tr>
+                        <tr data-row="9">
+                            <td class="cell" id="p19" data-col="9">9</td>
+                            <td class="cell" id="p191" data-col="1"></td>
+                            <td class="cell" id="p192" data-col="2"></td>
+                            <td class="cell" id="p193" data-col="3"></td>
+                            <td class="cell" id="p194" data-col="4"></td>
+                            <td class="cell" id="p195" data-col="5"></td>
+                            <td class="cell" id="p196" data-col="6"></td>
+                            <td class="cell" id="p197" data-col="7"></td>
+                            <td class="cell" id="p198" data-col="8"></td>
+                            <td class="cell" id="p199" data-col="9"></td>
+                            <td class="cell" id="p1910" data-col="10"></td>
+                        </tr>
+                        <tr data-row="10">
+                            <td class="cell" id="p110" data-col="10">10</td>
+                            <td class="cell" id="p1101" data-col="1"></td>
+                            <td class="cell" id="p1102" data-col="2"></td>
+                            <td class="cell" id="p1103" data-col="3"></td>
+                            <td class="cell" id="p1104" data-col="4"></td>
+                            <td class="cell" id="p1105" data-col="5"></td>
+                            <td class="cell" id="p1106" data-col="6"></td>
+                            <td class="cell" id="p1107" data-col="7"></td>
+                            <td class="cell" id="p1108" data-col="8"></td>
+                            <td class="cell" id="p1109" data-col="9"></td>
+                            <td class="cell" id="p11010" data-col="10"></td>
+                        </tr>
+                    </table>
+                    </div>
+                </div>
+            </div>
+            <div id="board_right" class="board_right">
+                <div id="boardfeildsetp1moves">
+                    <div id="board_inner_wrapper">
+                    <table id="board" align="center">
+                        <h3>Moves</h3>
+                        <tr data-row="horiz-numbers" >
+                            <td class="cell" id="blank" ></td>
+                            <td class="cell" id="p1mA" data-col="A">A</td>
+                            <td class="cell" id="p1mB" data-col="B">B</td>
+                            <td class="cell" id="p1mC" data-col="C">C</td>
+                            <td class="cell" id="p1mD" data-col="D">D</td>
+                            <td class="cell" id="p1mE" data-col="E">E</td>
+                            <td class="cell" id="p1mF" data-col="F">F</td>
+                            <td class="cell" id="p1mG" data-col="G">G</td>
+                            <td class="cell" id="p1mH" data-col="H">H</td>
+                            <td class="cell" id="p1mI" data-col="I">I</td>
+                            <td class="cell" id="p1mJ" data-col="J">J</td>
+                        </tr>
+                        <tr data-row="1" >
+                            <td class="cell" id="p1m1" data-col="1">1</td>
+                            <td class="cell" id="p1m11" data-col="1"></td>
+                            <td class="cell" id="p1m12" data-col="2"></td>
+                            <td class="cell" id="p1m13" data-col="3"></td>
+                            <td class="cell" id="p1m14" data-col="4"></td>
+                            <td class="cell" id="p1m15" data-col="5"></td>
+                            <td class="cell" id="p1m16" data-col="6"></td>
+                            <td class="cell" id="p1m17" data-col="7"></td>
+                            <td class="cell" id="p1m18" data-col="8"></td>
+                            <td class="cell" id="p1m19" data-col="9"></td>
+                            <td class="cell" id="p1m110" data-col="10"></td>
+                        </tr>
+                        <tr data-row="2">
+                            <td class="cell" id="p1m2" data-col="2">2</td>
+                            <td class="cell" id="p1m21" data-col="1"></td>
+                            <td class="cell" id="p1m22" data-col="2"></td>
+                            <td class="cell" id="p1m23" data-col="3"></td>
+                            <td class="cell" id="p1m24" data-col="4"></td>
+                            <td class="cell" id="p1m25" data-col="5"></td>
+                            <td class="cell" id="p1m26" data-col="6"></td>
+                            <td class="cell" id="p1m27" data-col="7"></td>
+                            <td class="cell" id="p1m28" data-col="8"></td>
+                            <td class="cell" id="p1m29" data-col="9"></td>
+                            <td class="cell" id="p1m210" data-col="10"></td>
+                        </tr>
+                        <tr data-row="3">
+                            <td class="cell" id="p1m3" data-col="3">3</td>
+                            <td class="cell" id="p1m31" data-col="1"></td>
+                            <td class="cell" id="p1m32" data-col="2"></td>
+                            <td class="cell" id="p1m33" data-col="3"></td>
+                            <td class="cell" id="p1m34" data-col="4"></td>
+                            <td class="cell" id="p1m35" data-col="5"></td>
+                            <td class="cell" id="p1m36" data-col="6"></td>
+                            <td class="cell" id="p1m37" data-col="7"></td>
+                            <td class="cell" id="p1m38" data-col="8"></td>
+                            <td class="cell" id="p1m39" data-col="9"></td>
+                            <td class="cell" id="p1m310" data-col="10"></td>
+                        </tr>
+                        <tr data-row="4">
+                            <td class="cell" id="p1m4" data-col="4">4</td>
+                            <td class="cell" id="p1m41" data-col="1"></td>
+                            <td class="cell" id="p1m42" data-col="2"></td>
+                            <td class="cell" id="p1m43" data-col="3"></td>
+                            <td class="cell" id="p1m44" data-col="4"></td>
+                            <td class="cell" id="p1m45" data-col="5"></td>
+                            <td class="cell" id="p1m46" data-col="6"></td>
+                            <td class="cell" id="p1m47" data-col="7"></td>
+                            <td class="cell" id="p1m48" data-col="8"></td>
+                            <td class="cell" id="p1m49" data-col="9"></td>
+                            <td class="cell" id="p1m410" data-col="10"></td>
+                        </tr>
+                        <tr data-row="5">
+                            <td class="cell" id="p1m5" data-col="5">5</td>
+                            <td class="cell" id="p1m51" data-col="1"></td>
+                            <td class="cell" id="p1m52" data-col="2"></td>
+                            <td class="cell" id="p1m53" data-col="3"></td>
+                            <td class="cell" id="p1m54" data-col="4"></td>
+                            <td class="cell" id="p1m55" data-col="5"></td>
+                            <td class="cell" id="p1m56" data-col="6"></td>
+                            <td class="cell" id="p1m57" data-col="7"></td>
+                            <td class="cell" id="p1m58" data-col="8"></td>
+                            <td class="cell" id="p1m59" data-col="9"></td>
+                            <td class="cell" id="p1m510" data-col="10"></td>
+                        </tr>
+                        <tr data-row="6">
+                            <td class="cell" id="p1m6" data-col="6">6</td>
+                            <td class="cell" id="p1m61" data-col="1"></td>
+                            <td class="cell" id="p1m62" data-col="2"></td>
+                            <td class="cell" id="p1m63" data-col="3"></td>
+                            <td class="cell" id="p1m64" data-col="4"></td>
+                            <td class="cell" id="p1m65" data-col="5"></td>
+                            <td class="cell" id="p1m66" data-col="6"></td>
+                            <td class="cell" id="p1m67" data-col="7"></td>
+                            <td class="cell" id="p1m68" data-col="8"></td>
+                            <td class="cell" id="p1m69" data-col="9"></td>
+                            <td class="cell" id="p1m610" data-col="10"></td>
+                        </tr>
+                        <tr data-row="7">
+                            <td class="cell" id="p1m7" data-col="7">7</td>
+                            <td class="cell" id="p1m71" data-col="1"></td>
+                            <td class="cell" id="p1m72" data-col="2"></td>
+                            <td class="cell" id="p1m73" data-col="3"></td>
+                            <td class="cell" id="p1m74" data-col="4"></td>
+                            <td class="cell" id="p1m75" data-col="5"></td>
+                            <td class="cell" id="p1m76" data-col="6"></td>
+                            <td class="cell" id="p1m77" data-col="7"></td>
+                            <td class="cell" id="p1m78" data-col="8"></td>
+                            <td class="cell" id="p1m79" data-col="9"></td>
+                            <td class="cell" id="p1m710" data-col="10"></td>
+                        </tr>
+                        <tr data-row="8">
+                            <td class="cell" id="p1m8" data-col="8">8</td>
+                            <td class="cell" id="p1m81" data-col="1"></td>
+                            <td class="cell" id="p1m82" data-col="2"></td>
+                            <td class="cell" id="p1m83" data-col="3"></td>
+                            <td class="cell" id="p1m84" data-col="4"></td>
+                            <td class="cell" id="p1m85" data-col="5"></td>
+                            <td class="cell" id="p1m86" data-col="6"></td>
+                            <td class="cell" id="p1m87" data-col="7"></td>
+                            <td class="cell" id="p1m88" data-col="8"></td>
+                            <td class="cell" id="p1m89" data-col="9"></td>
+                            <td class="cell" id="p1m810" data-col="10"></td>
+                        </tr>
+                        <tr data-row="9">
+                            <td class="cell" id="p1m9" data-col="9">9</td>
+                            <td class="cell" id="p1m91" data-col="1"></td>
+                            <td class="cell" id="p1m92" data-col="2"></td>
+                            <td class="cell" id="p1m93" data-col="3"></td>
+                            <td class="cell" id="p1m94" data-col="4"></td>
+                            <td class="cell" id="p1m95" data-col="5"></td>
+                            <td class="cell" id="p1m96" data-col="6"></td>
+                            <td class="cell" id="p1m97" data-col="7"></td>
+                            <td class="cell" id="p1m98" data-col="8"></td>
+                            <td class="cell" id="p1m99" data-col="9"></td>
+                            <td class="cell" id="p1m910" data-col="10"></td>
+                        </tr>
+                        <tr data-row="10">
+                            <td class="cell" id="p1m10" data-col="10">10</td>
+                            <td class="cell" id="p1m101" data-col="1"></td>
+                            <td class="cell" id="p1m102" data-col="2"></td>
+                            <td class="cell" id="p1m103" data-col="3"></td>
+                            <td class="cell" id="p1m104" data-col="4"></td>
+                            <td class="cell" id="p1m105" data-col="5"></td>
+                            <td class="cell" id="p1m106" data-col="6"></td>
+                            <td class="cell" id="p1m107" data-col="7"></td>
+                            <td class="cell" id="p1m108" data-col="8"></td>
+                            <td class="cell" id="p1m109" data-col="9"></td>
+                            <td class="cell" id="p1m1010" data-col="10"></td>
+                        </tr>
+                </table>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="board_wrapper_p2" class="board_wrapper_p2">
+            <div id="board_left" class="board_left">
+                <div id="boardfeildsetp2">
+                    <div id="board_inner_wrapper">
+                    <table id="board" align="center">
+                    <h3>Boats</h3>
+                    <tr data-row="horiz-numbers" >
+                        <td class="cell" id="blank" ></td>
+                        <td class="cell" id="p2A" data-col="A">A</td>
+                        <td class="cell" id="p2B" data-col="B">B</td>
+                        <td class="cell" id="p2C" data-col="C">C</td>
+                        <td class="cell" id="p2D" data-col="D">D</td>
+                        <td class="cell" id="p2E" data-col="E">E</td>
+                        <td class="cell" id="p2F" data-col="F">F</td>
+                        <td class="cell" id="p2G" data-col="G">G</td>
+                        <td class="cell" id="p2H" data-col="H">H</td>
+                        <td class="cell" id="p2I" data-col="I">I</td>
+                        <td class="cell" id="p2J" data-col="J">J</td>
+                    </tr>
+                    <tr data-row="1" >
+                        <td class="cell" id="p21" data-col="1">1</td>
+                        <td class="cell" id="p211" data-col="1"></td>
+                        <td class="cell" id="p212" data-col="2"></td>
+                        <td class="cell" id="p213" data-col="3"></td>
+                        <td class="cell" id="p214" data-col="4"></td>
+                        <td class="cell" id="p215" data-col="5"></td>
+                        <td class="cell" id="p216" data-col="6"></td>
+                        <td class="cell" id="p217" data-col="7"></td>
+                        <td class="cell" id="p218" data-col="8"></td>
+                        <td class="cell" id="p219" data-col="9"></td>
+                        <td class="cell" id="p2110" data-col="10"></td>
+                    </tr>
+                    <tr data-row="2">
+                        <td class="cell" id="p22" data-col="2">2</td>
+                        <td class="cell" id="p221" data-col="1"></td>
+                        <td class="cell" id="p222" data-col="2"></td>
+                        <td class="cell" id="p223" data-col="3"></td>
+                        <td class="cell" id="p224" data-col="4"></td>
+                        <td class="cell" id="p225" data-col="5"></td>
+                        <td class="cell" id="p226" data-col="6"></td>
+                        <td class="cell" id="p227" data-col="7"></td>
+                        <td class="cell" id="p228" data-col="8"></td>
+                        <td class="cell" id="p229" data-col="9"></td>
+                        <td class="cell" id="p2210" data-col="10"></td>
+                    </tr>
+                    <tr data-row="3">
+                        <td class="cell" id="p23" data-col="3">3</td>
+                        <td class="cell" id="p231" data-col="1"></td>
+                        <td class="cell" id="p232" data-col="2"></td>
+                        <td class="cell" id="p233" data-col="3"></td>
+                        <td class="cell" id="p234" data-col="4"></td>
+                        <td class="cell" id="p235" data-col="5"></td>
+                        <td class="cell" id="p236" data-col="6"></td>
+                        <td class="cell" id="p237" data-col="7"></td>
+                        <td class="cell" id="p238" data-col="8"></td>
+                        <td class="cell" id="p239" data-col="9"></td>
+                        <td class="cell" id="p2310" data-col="10"></td>
+                    </tr>
+                    <tr data-row="4">
+                        <td class="cell" id="p24" data-col="4">4</td>
+                        <td class="cell" id="p241" data-col="1"></td>
+                        <td class="cell" id="p242" data-col="2"></td>
+                        <td class="cell" id="p243" data-col="3"></td>
+                        <td class="cell" id="p244" data-col="4"></td>
+                        <td class="cell" id="p245" data-col="5"></td>
+                        <td class="cell" id="p246" data-col="6"></td>
+                        <td class="cell" id="p247" data-col="7"></td>
+                        <td class="cell" id="p248" data-col="8"></td>
+                        <td class="cell" id="p249" data-col="9"></td>
+                        <td class="cell" id="p2410" data-col="10"></td>
+                    </tr>
+                    <tr data-row="5">
+                        <td class="cell" id="p25" data-col="5">5</td>
+                        <td class="cell" id="p251" data-col="1"></td>
+                        <td class="cell" id="p252" data-col="2"></td>
+                        <td class="cell" id="p253" data-col="3"></td>
+                        <td class="cell" id="p254" data-col="4"></td>
+                        <td class="cell" id="p255" data-col="5"></td>
+                        <td class="cell" id="p256" data-col="6"></td>
+                        <td class="cell" id="p257" data-col="7"></td>
+                        <td class="cell" id="p258" data-col="8"></td>
+                        <td class="cell" id="p259" data-col="9"></td>
+                        <td class="cell" id="p2510" data-col="10"></td>
+                    </tr>
+                    <tr data-row="6">
+                        <td class="cell" id="p26" data-col="6">6</td>
+                        <td class="cell" id="p261" data-col="1"></td>
+                        <td class="cell" id="p262" data-col="2"></td>
+                        <td class="cell" id="p263" data-col="3"></td>
+                        <td class="cell" id="p264" data-col="4"></td>
+                        <td class="cell" id="p265" data-col="5"></td>
+                        <td class="cell" id="p266" data-col="6"></td>
+                        <td class="cell" id="p267" data-col="7"></td>
+                        <td class="cell" id="p268" data-col="8"></td>
+                        <td class="cell" id="p269" data-col="9"></td>
+                        <td class="cell" id="p2610" data-col="10"></td>
+                    </tr>
+                    <tr data-row="7">
+                        <td class="cell" id="p27" data-col="7">7</td>
+                        <td class="cell" id="p271" data-col="1"></td>
+                        <td class="cell" id="p272" data-col="2"></td>
+                        <td class="cell" id="p273" data-col="3"></td>
+                        <td class="cell" id="p274" data-col="4"></td>
+                        <td class="cell" id="p275" data-col="5"></td>
+                        <td class="cell" id="p276" data-col="6"></td>
+                        <td class="cell" id="p277" data-col="7"></td>
+                        <td class="cell" id="p278" data-col="8"></td>
+                        <td class="cell" id="p279" data-col="9"></td>
+                        <td class="cell" id="p2710" data-col="10"></td>
+                    </tr>
+                    <tr data-row="8">
+                        <td class="cell" id="p28" data-col="8">8</td>
+                        <td class="cell" id="p281" data-col="1"></td>
+                        <td class="cell" id="p282" data-col="2"></td>
+                        <td class="cell" id="p283" data-col="3"></td>
+                        <td class="cell" id="p284" data-col="4"></td>
+                        <td class="cell" id="p285" data-col="5"></td>
+                        <td class="cell" id="p286" data-col="6"></td>
+                        <td class="cell" id="p287" data-col="7"></td>
+                        <td class="cell" id="p288" data-col="8"></td>
+                        <td class="cell" id="p289" data-col="9"></td>
+                        <td class="cell" id="p2810" data-col="10"></td>
+                    </tr>
+                    <tr data-row="9">
+                        <td class="cell" id="p29" data-col="9">9</td>
+                        <td class="cell" id="p291" data-col="1"></td>
+                        <td class="cell" id="p292" data-col="2"></td>
+                        <td class="cell" id="p293" data-col="3"></td>
+                        <td class="cell" id="p294" data-col="4"></td>
+                        <td class="cell" id="p295" data-col="5"></td>
+                        <td class="cell" id="p296" data-col="6"></td>
+                        <td class="cell" id="p297" data-col="7"></td>
+                        <td class="cell" id="p298" data-col="8"></td>
+                        <td class="cell" id="p299" data-col="9"></td>
+                        <td class="cell" id="p2910" data-col="10"></td>
+                    </tr>
+                    <tr data-row="10">
+                        <td class="cell" id="p210" data-col="10">10</td>
+                        <td class="cell" id="p2101" data-col="1"></td>
+                        <td class="cell" id="p2102" data-col="2"></td>
+                        <td class="cell" id="p2103" data-col="3"></td>
+                        <td class="cell" id="p2104" data-col="4"></td>
+                        <td class="cell" id="p2105" data-col="5"></td>
+                        <td class="cell" id="p2106" data-col="6"></td>
+                        <td class="cell" id="p2107" data-col="7"></td>
+                        <td class="cell" id="p2108" data-col="8"></td>
+                        <td class="cell" id="p2109" data-col="9"></td>
+                        <td class="cell" id="p21010" data-col="10"></td>
+                    </tr>
+            </table>
+                    </div>
+                </div>
+            </div>
+            <div id="board_right" class="board_right">
+                <div id="boardfeildsetp2moves">
+                    <div id="board_inner_wrapper">
+                    <table id="board" align="center">
+                        <h3>Moves</h3>
+                    <tr data-row="horiz-numbers" >
+                        <td class="cell" id="blank" ></td>
+                        <td class="cell" id="p2mA" data-col="A">A</td>
+                        <td class="cell" id="p2mB" data-col="B">B</td>
+                        <td class="cell" id="p2mC" data-col="C">C</td>
+                        <td class="cell" id="p2mD" data-col="D">D</td>
+                        <td class="cell" id="p2mE" data-col="E">E</td>
+                        <td class="cell" id="p2mF" data-col="F">F</td>
+                        <td class="cell" id="p2mG" data-col="G">G</td>
+                        <td class="cell" id="p2mH" data-col="H">H</td>
+                        <td class="cell" id="p2mI" data-col="I">I</td>
+                        <td class="cell" id="p2mJ" data-col="J">J</td>
+                    </tr>
+                    <tr data-row="1" >
+                        <td class="cell" id="p2m1" data-col="1">1</td>
+                        <td class="cell" id="p2m11" data-col="1"></td>
+                        <td class="cell" id="p2m12" data-col="2"></td>
+                        <td class="cell" id="p2m13" data-col="3"></td>
+                        <td class="cell" id="p2m14" data-col="4"></td>
+                        <td class="cell" id="p2m15" data-col="5"></td>
+                        <td class="cell" id="p2m16" data-col="6"></td>
+                        <td class="cell" id="p2m17" data-col="7"></td>
+                        <td class="cell" id="p2m18" data-col="8"></td>
+                        <td class="cell" id="p2m19" data-col="9"></td>
+                        <td class="cell" id="p2m110" data-col="10"></td>
+                    </tr>
+                    <tr data-row="2">
+                        <td class="cell" id="p2m2" data-col="2">2</td>
+                        <td class="cell" id="p2m21" data-col="1"></td>
+                        <td class="cell" id="p2m22" data-col="2"></td>
+                        <td class="cell" id="p2m23" data-col="3"></td>
+                        <td class="cell" id="p2m24" data-col="4"></td>
+                        <td class="cell" id="p2m25" data-col="5"></td>
+                        <td class="cell" id="p2m26" data-col="6"></td>
+                        <td class="cell" id="p2m27" data-col="7"></td>
+                        <td class="cell" id="p2m28" data-col="8"></td>
+                        <td class="cell" id="p2m29" data-col="9"></td>
+                        <td class="cell" id="p2m210" data-col="10"></td>
+                    </tr>
+                    <tr data-row="3">
+                        <td class="cell" id="p2m3" data-col="3">3</td>
+                        <td class="cell" id="p2m31" data-col="1"></td>
+                        <td class="cell" id="p2m32" data-col="2"></td>
+                        <td class="cell" id="p2m33" data-col="3"></td>
+                        <td class="cell" id="p2m34" data-col="4"></td>
+                        <td class="cell" id="p2m35" data-col="5"></td>
+                        <td class="cell" id="p2m36" data-col="6"></td>
+                        <td class="cell" id="p2m37" data-col="7"></td>
+                        <td class="cell" id="p2m38" data-col="8"></td>
+                        <td class="cell" id="p2m39" data-col="9"></td>
+                        <td class="cell" id="p2m310" data-col="10"></td>
+                    </tr>
+                    <tr data-row="4">
+                        <td class="cell" id="p2m4" data-col="4">4</td>
+                        <td class="cell" id="p2m41" data-col="1"></td>
+                        <td class="cell" id="p2m42" data-col="2"></td>
+                        <td class="cell" id="p2m43" data-col="3"></td>
+                        <td class="cell" id="p2m44" data-col="4"></td>
+                        <td class="cell" id="p2m45" data-col="5"></td>
+                        <td class="cell" id="p2m46" data-col="6"></td>
+                        <td class="cell" id="p2m47" data-col="7"></td>
+                        <td class="cell" id="p2m48" data-col="8"></td>
+                        <td class="cell" id="p2m49" data-col="9"></td>
+                        <td class="cell" id="p2m410" data-col="10"></td>
+                    </tr>
+                    <tr data-row="5">
+                        <td class="cell" id="p2m5" data-col="5">5</td>
+                        <td class="cell" id="p2m51" data-col="1"></td>
+                        <td class="cell" id="p2m52" data-col="2"></td>
+                        <td class="cell" id="p2m53" data-col="3"></td>
+                        <td class="cell" id="p2m54" data-col="4"></td>
+                        <td class="cell" id="p2m55" data-col="5"></td>
+                        <td class="cell" id="p2m56" data-col="6"></td>
+                        <td class="cell" id="p2m57" data-col="7"></td>
+                        <td class="cell" id="p2m58" data-col="8"></td>
+                        <td class="cell" id="p2m59" data-col="9"></td>
+                        <td class="cell" id="p2m510" data-col="10"></td>
+                    </tr>
+                    <tr data-row="6">
+                        <td class="cell" id="p2m6" data-col="6">6</td>
+                        <td class="cell" id="p2m61" data-col="1"></td>
+                        <td class="cell" id="p2m62" data-col="2"></td>
+                        <td class="cell" id="p2m63" data-col="3"></td>
+                        <td class="cell" id="p2m64" data-col="4"></td>
+                        <td class="cell" id="p2m65" data-col="5"></td>
+                        <td class="cell" id="p2m66" data-col="6"></td>
+                        <td class="cell" id="p2m67" data-col="7"></td>
+                        <td class="cell" id="p2m68" data-col="8"></td>
+                        <td class="cell" id="p2m69" data-col="9"></td>
+                        <td class="cell" id="p2m610" data-col="10"></td>
+                    </tr>
+                    <tr data-row="7">
+                        <td class="cell" id="p2m7" data-col="7">7</td>
+                        <td class="cell" id="p2m71" data-col="1"></td>
+                        <td class="cell" id="p2m72" data-col="2"></td>
+                        <td class="cell" id="p2m73" data-col="3"></td>
+                        <td class="cell" id="p2m74" data-col="4"></td>
+                        <td class="cell" id="p2m75" data-col="5"></td>
+                        <td class="cell" id="p2m76" data-col="6"></td>
+                        <td class="cell" id="p2m77" data-col="7"></td>
+                        <td class="cell" id="p2m78" data-col="8"></td>
+                        <td class="cell" id="p2m79" data-col="9"></td>
+                        <td class="cell" id="p2m710" data-col="10"></td>
+                    </tr>
+                    <tr data-row="8">
+                        <td class="cell" id="p2m8" data-col="8">8</td>
+                        <td class="cell" id="p2m81" data-col="1"></td>
+                        <td class="cell" id="p2m82" data-col="2"></td>
+                        <td class="cell" id="p2m83" data-col="3"></td>
+                        <td class="cell" id="p2m84" data-col="4"></td>
+                        <td class="cell" id="p2m85" data-col="5"></td>
+                        <td class="cell" id="p2m86" data-col="6"></td>
+                        <td class="cell" id="p2m87" data-col="7"></td>
+                        <td class="cell" id="p2m88" data-col="8"></td>
+                        <td class="cell" id="p2m89" data-col="9"></td>
+                        <td class="cell" id="p2m810" data-col="10"></td>
+                    </tr>
+                    <tr data-row="9">
+                        <td class="cell" id="p2m9" data-col="9">9</td>
+                        <td class="cell" id="p2m91" data-col="1"></td>
+                        <td class="cell" id="p2m92" data-col="2"></td>
+                        <td class="cell" id="p2m93" data-col="3"></td>
+                        <td class="cell" id="p2m94" data-col="4"></td>
+                        <td class="cell" id="p2m95" data-col="5"></td>
+                        <td class="cell" id="p2m96" data-col="6"></td>
+                        <td class="cell" id="p2m97" data-col="7"></td>
+                        <td class="cell" id="p2m98" data-col="8"></td>
+                        <td class="cell" id="p2m99" data-col="9"></td>
+                        <td class="cell" id="p2m910" data-col="10"></td>
+                    </tr>
+                    <tr data-row="10">
+                        <td class="cell" id="p2m10" data-col="10">10</td>
+                        <td class="cell" id="p2m101" data-col="1"></td>
+                        <td class="cell" id="p2m102" data-col="2"></td>
+                        <td class="cell" id="p2m103" data-col="3"></td>
+                        <td class="cell" id="p2m104" data-col="4"></td>
+                        <td class="cell" id="p2m105" data-col="5"></td>
+                        <td class="cell" id="p2m106" data-col="6"></td>
+                        <td class="cell" id="p2m107" data-col="7"></td>
+                        <td class="cell" id="p2m108" data-col="8"></td>
+                        <td class="cell" id="p2m109" data-col="9"></td>
+                        <td class="cell" id="p2m1010" data-col="10"></td>
+                    </tr>
+            </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--------------------------------------------------------
+
+          Ship Status - Tells players the status of their ships.
+
+        --------------------------------------------------------->
+        <div id="ship_status">
+            <div id="ship_s_left">
+                <div id="ship_s_left_content">
+                    <strong>- Player 1's Boats -</strong><br>
+                    Carrier:     <div id="p1c" class="statusdiv">Afloat</div><br>
+                    Battleship:  <div id="p1b" class="statusdiv">Afloat</div><br>
+                    Submarine:   <div id="p1s" class="statusdiv">Afloat</div><br>
+                    Destroyer:   <div id="p1d" class="statusdiv">Afloat</div><br>
+                    Patrol Boat: <div id="p1p" class="statusdiv">Afloat</div><br>
+                </div>
+            </div>
+            <div id="ship_s_right">
+                <div id="ship_s_right_content">
+                    <strong>- Player 2's Boats -</strong><br>
+                    Carrier:     <div id="p2c" class="statusdiv">Afloat</div><br>
+                    Battleship:  <div id="p2b" class="statusdiv">Afloat</div><br>
+                    Submarine:   <div id="p2s" class="statusdiv">Afloat</div><br>
+                    Destroyer:   <div id="p2d" class="statusdiv">Afloat</div><br>
+                    Patrol Boat: <div id="p2p" class="statusdiv">Afloat</div><br>
+                </div>
+            </div>
+            <br>
+        </div>
+        <!--------------------------------------------------------
+
+                   "The Chat App" Oriented to the right!
+
+        --------------------------------------------------------->
+        <div id="the_chat_app">
+            <div id="card_chat_app" class="card_chat_app">
+                <div id="card_ca_content" class="card_ca_content">
+
+                    <h1 id="join_chat_dialogue"></h1>
+
+                    <div id="join_chat">
+                            <div id="card_nickname" class="card_nickname">
+                                    <div id="card_nm_content" class="card_nm_content">
+                                    <div id="form_buttons">
+                                        <form id="nameInput" class="nameInput pure-form pure-form-stacked">
+                                            <label for="userName">User Name:</label>
+                                            <input type="text" name="userName" id="userName" autocomplete="off" placeholder="Enter Username...">
+                                            <button type="submit" class="nickname_submit pure-button">Join!</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div id="theList">
+                        <div id="card_theList" class="card_theList">
+                            <div id="card_banner" class="card_banner">
+                                <h3>Users</h3>
+                            </div>
+                            <div id="card_tL_content" class="card_theList">
+                                <ol class="userList" id="'userList">
+                                    {% for user in users %}
+                                         <ul class="{{user}}">{{user}}</ul>
+                                    {% endfor %}
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="theMessages">
+                        <div id="card_theMessages" class="card_theMessages">
+                            <div id="card_banner" class="card_banner">
+                                <h3>Messages</h3>
+                            </div>
+                            <div id="card_tM_content">
+                                    <ol class="messages" id="messages"> </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--message form & button-->
+                    <div id="theMsgsInput">
+                        <div id="card_theMsgInput" class="card_theMsgInput">
+                            <div id="card_tMI_content" class="card_tMI_content">
+                                <fieldset>
+                                    <form class="input pure-form pure-form-stacked" id="input">
+                                        <label for="message">Enter Message:</label>
+                                        <textarea type="text" name="message" id="message" maxlength="70" placeholder="Enter Message Here.."></textarea>
+                                        <button type="submit" class="msg_submit pure-button">Send</button>
+                                    </form>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </main>
+    <script src="/static/chat_game.js" async></script>
+{% endblock content_mid %}
+{% block content_bottom %}
+    <!--
+    Content BOTTOM is not needed here, simply including it for consistency in the event that we use this container
+    on other pages
+    -->
+{% endblock content_bottom %}
+
